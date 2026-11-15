@@ -1,0 +1,18 @@
+name: Pipeline per Angular
+on:
+  push:
+    branches: main
+  workflowf_call:
+  pull_request:
+    branches: main
+
+jobs:
+  permissions:
+    content: read
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          - angular-version: 26
