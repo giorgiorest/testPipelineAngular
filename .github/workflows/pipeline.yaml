@@ -20,11 +20,13 @@ jobs:
           cache: npm
       - name: Intall dependencies
         run: npm ci
+      - run: npm run build
       - uses: actions/upload-artifact@v6
         with:
           name: fe
           path: ./dist
   docker:
+    environment: produzione
     permissions:
       contents: read
       packages: write
@@ -52,6 +54,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
+          tags: $ {{ steps.meta.outputs.tags }}
           push: true
 
 
