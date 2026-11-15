@@ -18,11 +18,13 @@ jobs:
         with:
           node-version: 26
           cache: npm
-      - run: npm ci
+      - name: Intall dependencies
+        run: npm ci
+        working-directory: ./testAngular
       - uses: actions/upload-artifact@v6
         with:
           name: fe
-          path: /dist
+          path: ./testAngular/dist
   docker:
     permissions:
       contents: read
