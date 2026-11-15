@@ -52,7 +52,7 @@ jobs:
             type=ref,event=branch,pattern=main
       - uses: docker/build-push-action@v4
         with:
-          context: /fe
+          context: ./fe
           file: ./Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
           push: true
