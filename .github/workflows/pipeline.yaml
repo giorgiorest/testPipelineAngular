@@ -20,7 +20,6 @@ jobs:
           cache: npm
       - name: Intall dependencies
         run: npm ci
-        working-directory: ./testAngular
       - uses: actions/upload-artifact@v6
         with:
           name: fe
